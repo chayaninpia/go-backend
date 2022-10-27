@@ -1,0 +1,12 @@
+version: '2'
+services:
+  go-backend:
+    image: 'go-backend'
+    ports:
+      - '9997:9997'
+    networks:
+      - backend
+      
+networks:
+  backend:
+    name: backend

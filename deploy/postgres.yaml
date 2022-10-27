@@ -1,0 +1,22 @@
+version: '2'
+services:
+      
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: test_app
+    ports:
+      - '5432:5432'
+    networks:
+      - backend
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 111.1.0.0/16
