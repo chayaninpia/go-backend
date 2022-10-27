@@ -32,6 +32,12 @@ func Update(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, `Update complete`, nil)
 }
 

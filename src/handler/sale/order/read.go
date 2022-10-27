@@ -34,8 +34,8 @@ func (rso *ReadSaleOrderI) Read(e *xorm.Engine) ([]ReadSaleOrderO, error) {
 
 	qs := e.Select(`*`).Table(tb.TSaleOrder{}.TableName())
 
-	res := []ReadSaleOrderO{}
-	resultOrderItems := []ReadSaleOrderOItem{}
+	res := make([]ReadSaleOrderO,0)
+	resultOrderItems := make([]ReadSaleOrderOItem,0)
 
 	if rso.OrderNo != `` {
 

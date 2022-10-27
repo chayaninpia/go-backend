@@ -26,7 +26,7 @@ func Read(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
-	res := []ReadProductGroupO{}
+	res := make([]ReadProductGroupO,0)
 	for _, v := range result {
 
 		res = append(res, ReadProductGroupO{
@@ -35,12 +35,18 @@ func Read(c *gin.Context) {
 		})
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, ``, res)
 }
 
 func (rp *ReadProductGroupI) Read(e *xorm.Engine) ([]tb.TProductGroup, error) {
 
-	res := []tb.TProductGroup{}
+	res := make([]tb.TProductGroup,0)
 
 	qs := e.Select(`*`).Table(tb.TProductGroup{}.TableName())
 

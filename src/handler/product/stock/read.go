@@ -28,12 +28,18 @@ func Read(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, ``, res)
 
 }
 func (gs *GetStockI) QueryStock(e *xorm.Engine) ([]GetStockO, error) {
 
-	res := []GetStockO{}
+	res := make([]GetStockO,0)
 
 	qs := e.Select(`tp.id, tp.barcode_id, tp.product_name , tps.quantity`).Table(tb.TProductStock{}.TableName()).Alias(`tps`).
 		Join(`INNER`, `t_product AS tp`, `tp.id = tps.product_id`)

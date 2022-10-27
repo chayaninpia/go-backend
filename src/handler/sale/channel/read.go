@@ -28,6 +28,12 @@ func Read(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, ``, res)
 
 }
@@ -45,7 +51,7 @@ func (rsc *ReadSaleChannelI) Read(e *xorm.Engine) ([]ReadSaleChannelO, error) {
 		return nil, err
 	}
 
-	res := []ReadSaleChannelO{}
+	res := make([]ReadSaleChannelO,0)
 	for _, v := range result {
 		res = append(res, ReadSaleChannelO{
 			Id:          v[`id`],

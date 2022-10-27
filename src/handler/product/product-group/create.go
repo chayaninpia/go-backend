@@ -43,7 +43,7 @@ func (cpg *CreateProductGroupI) Create(e *xorm.Engine) error {
 		GroupName: cpg.GroupName,
 	}
 
-	if _, err := e.Cols(pdgInsert.Columns()...).InsertOne(pdgInsert); err != nil {
+	if _, err := e.Cols(pdgInsert.Columns()...).Insert(pdgInsert); err != nil {
 		return err
 	}
 

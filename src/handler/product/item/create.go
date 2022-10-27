@@ -32,6 +32,12 @@ func Create(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err :=  e.Close();err != nil {
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, `Insert Product Success`, nil)
 }
 
@@ -50,7 +56,7 @@ func (cp *CreateProductI) Create(e *xorm.Engine) error {
 		IsBaseProduct: *cp.IsBaseProduct,
 	}
 
-	if _, err := e.Cols(productCreate.Columns()...).InsertOne(productCreate); err != nil {
+	if _, err := e.Cols(productCreate.Columns()...).Insert(productCreate); err != nil {
 		return err
 	}
 
@@ -63,13 +69,15 @@ func (cp *CreateProductI) Create(e *xorm.Engine) error {
 				Quantity:  0,
 			}
 
-			if _, err := e.Cols(productStockCreate.Columns()...).InsertOne(productStockCreate); err != nil {
-				s.Rollback()
+			if _, err := e.Cols(productStockCreate.Columns()...).Insert(productStockCreate); err != nil {
+				if err := s.Rollback(); err != nil{
+					return nil, err
+				}
 				return nil, err
 			}
 		} else {
 
-			subProductCreate := []tb.TProductSub{}
+			subProductCreate := make([]tb.TProductSub,0)
 			for _, v := range cp.SubProduct {
 
 				subProductCreate = append(subProductCreate, tb.TProductSub{
@@ -81,7 +89,9 @@ func (cp *CreateProductI) Create(e *xorm.Engine) error {
 			}
 
 			if _, err := e.Cols(tb.TProductSub{}.Columns()...).Insert(subProductCreate); err != nil {
-				s.Rollback()
+				if err := s.Rollback(); err != nil{
+					return nil, err
+				}
 				return nil, err
 			}
 		}

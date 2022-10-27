@@ -6,7 +6,6 @@ import (
 	"apps/src/util/logx"
 	"apps/src/util/resx"
 	"apps/src/util/validx"
-	"log"
 
 	"github.com/gin-gonic/gin"
 	"xorm.io/xorm"
@@ -33,6 +32,12 @@ func Update(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, `Update complete`, nil)
 }
 
@@ -48,17 +53,10 @@ func (up *UpdateProductI) Update(e *xorm.Engine) error {
 		Unit:          *up.Unit,
 		IsBaseProduct: *up.IsBaseProduct,
 	}
-	log.Println(productUpdate)
+
 	productUpdateCondi := tb.TProduct{
 		Id: *up.Id,
 	}
-	log.Println(productUpdateCondi)
-
-	// s := e.NewSession()
-	// defer s.Close()
-	// if err := s.Begin(); err != nil {
-	// 	return err
-	// }
 
 	if _, err := e.Update(productUpdate, productUpdateCondi); err != nil {
 		return err

@@ -31,6 +31,12 @@ func Delete(c *gin.Context) {
 	if err := req.Delete(e); err != nil {
 		logx.Error(c, err.Error())
 	}
+	
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
 
 	resx.Success(c, `Delete complete`, nil)
 }

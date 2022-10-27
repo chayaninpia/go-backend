@@ -33,6 +33,12 @@ func Create(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, `Add Sale Channel Success`, nil)
 }
 
@@ -43,7 +49,7 @@ func (csc *CreateSaleChannelI) Create(e *xorm.Engine) error {
 		SaleChannel: csc.SaleChannel,
 	}
 
-	if _, err := e.Cols(saleChannelCreate.Columns()...).InsertOne(saleChannelCreate); err != nil {
+	if _, err := e.Cols(saleChannelCreate.Columns()...).Insert(saleChannelCreate); err != nil {
 		return nil
 	}
 

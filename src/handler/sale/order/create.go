@@ -37,6 +37,12 @@ func Create(c *gin.Context) {
 		logx.Error(c, err.Error())
 	}
 
+	defer func() {
+		if err := e.Close();err != nil{
+			logx.Error(c,err.Error())
+		}
+	}()
+
 	resx.Success(c, ``, res)
 }
 
@@ -46,8 +52,8 @@ func (cso *CreateSaleOrderI) Create(e *xorm.Engine) (*CreateSaleOrderO, error) {
 	orderDate := time.Now()
 	totalBasePrice := 0.0
 	totalSalePrice := 0.0
-	saleOrderItemCreate := []tb.TSaleOrderItem{}
-	updateStock := []stock.AddStockI{}
+	saleOrderItemCreate := make([]tb.TSaleOrderItem,0)
+	updateStock := make([]stock.AddStockI,0)
 
 	for _, v := range cso.Items {
 
@@ -110,7 +116,7 @@ func (cso *CreateSaleOrderI) Create(e *xorm.Engine) (*CreateSaleOrderO, error) {
 		}
 	}
 
-	if _, err := e.Cols(saleOrderCreate.Columns()...).InsertOne(saleOrderCreate); err != nil {
+	if _, err := e.Cols(saleOrderCreate.Columns()...).Insert(saleOrderCreate); err != nil {
 		return nil, err
 	}
 
