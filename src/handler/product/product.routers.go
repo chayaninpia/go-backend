@@ -13,19 +13,19 @@ func Router(e *gin.Engine) {
 	g := e.Group(`/v1/product`)
 	{
 		//item
-		g.GET(`/item/read`, item.Read)
-		g.POST(`/item/create`, item.Create)
-		g.PUT(`/item/update`, item.Update)
-		g.DELETE(`/item/delete`, item.Delete)
+		g.GET(`/item`, item.Read)
+		g.POST(`/item`, item.Create)
+		g.PUT(`/item`, item.Update)
+		g.DELETE(`/item`, item.Delete)
 
 		//product-group
-		g.GET(`/product-group/read`, productgroup.Read)
-		g.POST(`/product-group/create`, productgroup.Create)
-		g.PUT(`/product-group/update`, productgroup.Update)
-		g.DELETE(`/product-group/delete`, productgroup.Delete)
+		g.GET(`/product-group`, productgroup.Read)
+		g.POST(`/product-group`, productgroup.Create)
+		g.PUT(`/product-group`, productgroup.Update)
+		g.DELETE(`/product-group`, productgroup.Delete)
 
 		//stock
-		g.GET(`/stock/read`, stock.Read)
-		g.PUT(`/stock/update`, stock.Update)
+		g.GET(`/stock`, stock.Read)
+		g.PUT(`/stock`, stock.Update)
 	}
 }

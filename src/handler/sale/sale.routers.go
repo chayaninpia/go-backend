@@ -12,13 +12,13 @@ func Router(e *gin.Engine) {
 	g := e.Group(`/v1/sale`)
 	{
 		//channel
-		g.GET(`/channel/read`, channel.Read)
-		g.POST(`/channel/create`, channel.Create)
-		g.PUT(`/channel/update`, channel.Update)
-		g.DELETE(`/channel/delete`, channel.Delete)
+		g.GET(`/channel`, channel.Read)
+		g.POST(`/channel`, channel.Create)
+		g.PUT(`/channel`, channel.Update)
+		g.DELETE(`/channel`, channel.Delete)
 
 		//order
-		g.GET(`/order/read`, order.Read)
-		g.POST(`/order/create`, order.Create)
+		g.GET(`/order`, order.Read)
+		g.POST(`/order`, order.Create)
 	}
 }
