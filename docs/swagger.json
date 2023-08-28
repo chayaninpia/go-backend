@@ -1,0 +1,2161 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a docs of Go Backend POS API",
+        "title": "Go Backend POS API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/address": {
+            "get": {
+                "description": "to read address",
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Address",
+                "operationId": "Address",
+                "parameters": [
+                    {
+                        "description": "AddressReadI",
+                        "name": "AddressReadI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.AddressReadI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-models_AddressReadO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update address",
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Address",
+                "operationId": "Address",
+                "parameters": [
+                    {
+                        "description": "AddressUpdateI",
+                        "name": "AddressUpdateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.AddressUpdateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-models_AddressUpdateO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create a new address",
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Address",
+                "operationId": "Address",
+                "parameters": [
+                    {
+                        "description": "AddressCreateI",
+                        "name": "AddressCreateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.AddressCreateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "to delete address",
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Address",
+                "operationId": "Address",
+                "parameters": [
+                    {
+                        "description": "AddressDeleteI",
+                        "name": "AddressDeleteI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.AddressDeleteI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/automigrate": {
+            "post": {
+                "description": "to automigate database",
+                "tags": [
+                    "AutoMigrate"
+                ],
+                "summary": "AutoMigrate",
+                "operationId": "AutoMigrate",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/customer": {
+            "get": {
+                "description": "to read customer",
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "CustomerRead",
+                "operationId": "CustomerRead",
+                "parameters": [
+                    {
+                        "description": "CustomerReadI",
+                        "name": "CustomerReadI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CustomerReadI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-array_models_ReadProductO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update customer",
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "CustomerUpdate",
+                "operationId": "CustomerUpdate",
+                "parameters": [
+                    {
+                        "description": "CustomerUpdateI",
+                        "name": "CustomerUpdateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CustomerUpdateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create customer",
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "CustomerCreate",
+                "operationId": "CustomerCreate",
+                "parameters": [
+                    {
+                        "description": "CustomerCreateI",
+                        "name": "CustomerCreateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CustomerCreateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "to delete customer",
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "CustomerDelete",
+                "operationId": "CustomerDelete",
+                "parameters": [
+                    {
+                        "description": "CustomerDeleteI",
+                        "name": "CustomerDeleteI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CustomerDeleteI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "description": "to get authorization token",
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login",
+                "operationId": "Login",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-models_Token"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/product": {
+            "get": {
+                "description": "to read product item by id or product name",
+                "tags": [
+                    "Product"
+                ],
+                "summary": "ProductRead",
+                "operationId": "ProductRead",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "productname",
+                        "name": "productname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-models_ReadProductO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update product item",
+                "tags": [
+                    "Product"
+                ],
+                "summary": "ProductUpdate",
+                "operationId": "ProductUpdate",
+                "parameters": [
+                    {
+                        "description": "ProductUpdateI",
+                        "name": "ProductUpdateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductUpdateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-models_UpdateProductO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create product item",
+                "tags": [
+                    "Product"
+                ],
+                "summary": "ProductCreate",
+                "operationId": "ProductCreate",
+                "parameters": [
+                    {
+                        "description": "ProductCreateI",
+                        "name": "ProductCreateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductCreateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "to delete product item",
+                "tags": [
+                    "Product"
+                ],
+                "summary": "ProductDelete",
+                "operationId": "ProductDelete",
+                "parameters": [
+                    {
+                        "description": "ProductDeleteI",
+                        "name": "ProductDeleteI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductDeleteI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/productgroup": {
+            "get": {
+                "description": "to read product group",
+                "tags": [
+                    "ProductGroup"
+                ],
+                "summary": "ProductGroupRead",
+                "operationId": "ProductGroupRead",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "groupName",
+                        "name": "groupName",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-array_models_ReadProductGroupO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update product group",
+                "tags": [
+                    "ProductGroup"
+                ],
+                "summary": "ProductGroupUpdate",
+                "operationId": "ProductGroupUpdate",
+                "parameters": [
+                    {
+                        "description": "UpdateProductGroupI",
+                        "name": "UpdateProductGroupI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateProductGroupI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create product group",
+                "tags": [
+                    "ProductGroup"
+                ],
+                "summary": "ProductGroupCreate",
+                "operationId": "ProductGroupCreate",
+                "parameters": [
+                    {
+                        "description": "CreateProductGroupI",
+                        "name": "CreateProductGroupI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateProductGroupI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "to delete product group",
+                "tags": [
+                    "ProductGroup"
+                ],
+                "summary": "ProductGroupDelete",
+                "operationId": "ProductGroupDelete",
+                "parameters": [
+                    {
+                        "description": "DeleteProductGroupI",
+                        "name": "DeleteProductGroupI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.DeleteProductGroupI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/productitem": {
+            "get": {
+                "description": "to read product item",
+                "tags": [
+                    "ProductItem"
+                ],
+                "summary": "ProductItemRead",
+                "operationId": "ProductItemRead",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "productName",
+                        "name": "productName",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-array_models_ReadProductO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update product item",
+                "tags": [
+                    "ProductItem"
+                ],
+                "summary": "ProductItemUpdate",
+                "operationId": "ProductItemUpdate",
+                "parameters": [
+                    {
+                        "description": "UpdateProductI",
+                        "name": "UpdateProductI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateProductI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create product item",
+                "tags": [
+                    "ProductItem"
+                ],
+                "summary": "ProductItemCreate",
+                "operationId": "ProductItemCreate",
+                "parameters": [
+                    {
+                        "description": "CreateProductI",
+                        "name": "CreateProductI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateProductI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "to delete product item",
+                "tags": [
+                    "ProductItem"
+                ],
+                "summary": "ProductItemDelete",
+                "operationId": "ProductItemDelete",
+                "parameters": [
+                    {
+                        "description": "DeleteProductI",
+                        "name": "DeleteProductI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.DeleteProductI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/productstock": {
+            "get": {
+                "description": "to read product stock",
+                "tags": [
+                    "ProductStock"
+                ],
+                "summary": "ProductStockRead",
+                "operationId": "ProductStockRead",
+                "parameters": [
+                    {
+                        "description": "GetStockI",
+                        "name": "GetStockI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.GetStockI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-array_models_GetStockO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update product stock",
+                "tags": [
+                    "ProductStock"
+                ],
+                "summary": "ProductStockUpdate",
+                "operationId": "ProductStockUpdate",
+                "parameters": [
+                    {
+                        "description": "AddStockI",
+                        "name": "AddStockI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.AddStockI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/salechannel": {
+            "get": {
+                "description": "to read sale channel",
+                "tags": [
+                    "SaleChannel"
+                ],
+                "summary": "SaleChannelRead",
+                "operationId": "SaleChannelRead",
+                "parameters": [
+                    {
+                        "description": "ReadSaleChannelI",
+                        "name": "ReadSaleChannelI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.ReadSaleChannelI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-array_models_ReadSaleChannelO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "to update sale channel",
+                "tags": [
+                    "SaleChannel"
+                ],
+                "summary": "SaleChannelUpdate",
+                "operationId": "SaleChannelUpdate",
+                "parameters": [
+                    {
+                        "description": "UpdateSaleChannelI",
+                        "name": "UpdateSaleChannelI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateSaleChannelI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create sale channel",
+                "tags": [
+                    "SaleChannel"
+                ],
+                "summary": "SaleChannelCreate",
+                "operationId": "SaleChannelCreate",
+                "parameters": [
+                    {
+                        "description": "CreateSaleChannelI",
+                        "name": "CreateSaleChannelI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateSaleChannelI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "to delete sale channel",
+                "tags": [
+                    "SaleChannel"
+                ],
+                "summary": "SaleChannelDelete",
+                "operationId": "SaleChannelDelete",
+                "parameters": [
+                    {
+                        "description": "DeleteSaleChannelI",
+                        "name": "DeleteSaleChannelI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.DeleteSaleChannelI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/saleorder": {
+            "get": {
+                "description": "to read sale order",
+                "tags": [
+                    "SaleOrder"
+                ],
+                "summary": "SaleOrderRead",
+                "operationId": "SaleOrderRead",
+                "parameters": [
+                    {
+                        "description": "SaleOrderReadI",
+                        "name": "SaleOrderReadI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.SaleOrderReadI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-array_models_SaleOrderReadO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "to create sale order",
+                "tags": [
+                    "SaleOrder"
+                ],
+                "summary": "SaleOrderCreate",
+                "operationId": "SaleOrderCreate",
+                "parameters": [
+                    {
+                        "description": "SaleOrderCreateI",
+                        "name": "SaleOrderCreateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.SaleOrderCreateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/saleorder/:orderno": {
+            "get": {
+                "description": "to Update sale order",
+                "tags": [
+                    "SaleOrder"
+                ],
+                "summary": "SaleOrderUpdate",
+                "operationId": "SaleOrderUpdate",
+                "parameters": [
+                    {
+                        "description": "SaleOrderUpdateI",
+                        "name": "SaleOrderUpdateI",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/models.SaleOrderUpdateI"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/saleorder/{orderno}": {
+            "get": {
+                "description": "to read sale order by order number",
+                "tags": [
+                    "SaleOrder"
+                ],
+                "summary": "SaleOrderReadByOrderNo",
+                "operationId": "SaleOrderReadByOrderNo",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "orderno",
+                        "name": "orderno",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-models_SaleOrderReadO"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.ResponseAPI-any"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "collectionmodels.ItemList": {
+            "type": "object",
+            "properties": {
+                "base_price": {
+                    "type": "number"
+                },
+                "itemId": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "sale_price": {
+                    "type": "number"
+                },
+                "sellerSku": {
+                    "type": "string"
+                },
+                "vat": {
+                    "type": "number"
+                }
+            }
+        },
+        "collectionmodels.OrderAddress": {
+            "type": "object",
+            "properties": {
+                "address1": {
+                    "type": "string"
+                },
+                "address2": {
+                    "type": "string"
+                },
+                "address3": {
+                    "type": "string"
+                },
+                "address4": {
+                    "type": "string"
+                },
+                "address5": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "phone2": {
+                    "type": "string"
+                },
+                "post_code": {
+                    "type": "string"
+                }
+            }
+        },
+        "collectionmodels.Price": {
+            "type": "object",
+            "properties": {
+                "basePrice": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "specialPrice": {
+                    "type": "number"
+                },
+                "vat": {
+                    "type": "number"
+                }
+            }
+        },
+        "collectionmodels.ProductList": {
+            "type": "object",
+            "properties": {
+                "productId": {
+                    "type": "string"
+                },
+                "quantityUse": {
+                    "type": "integer"
+                }
+            }
+        },
+        "collectionmodels.ShopItem": {
+            "type": "object",
+            "properties": {
+                "lazada": {
+                    "$ref": "#/definitions/collectionmodels.StandardShopItem"
+                },
+                "shopee": {
+                    "$ref": "#/definitions/collectionmodels.StandardShopItem"
+                }
+            }
+        },
+        "collectionmodels.StandardShopItem": {
+            "type": "object",
+            "properties": {
+                "itemId": {
+                    "type": "string"
+                },
+                "sellerSku": {
+                    "type": "string"
+                }
+            }
+        },
+        "collectionmodels.Stock": {
+            "type": "object",
+            "properties": {
+                "available": {
+                    "type": "integer"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "remaining": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.AddStockI": {
+            "type": "object",
+            "required": [
+                "barcodeId",
+                "quantity",
+                "updateType"
+            ],
+            "properties": {
+                "barcodeId": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "updateType": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.AddressCreateI": {
+            "type": "object",
+            "properties": {
+                "amphure": {
+                    "$ref": "#/definitions/models.BaseAmphureModel"
+                },
+                "name_en": {
+                    "type": "string"
+                },
+                "name_th": {
+                    "type": "string"
+                },
+                "post_code": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.AddressDeleteI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.AddressReadI": {
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.AddressReadO": {
+            "type": "object",
+            "properties": {
+                "amphure": {
+                    "$ref": "#/definitions/models.BaseAmphureModel"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name_en": {
+                    "type": "string"
+                },
+                "name_th": {
+                    "type": "string"
+                },
+                "post_code": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.AddressUpdateI": {
+            "type": "object",
+            "properties": {
+                "amphure": {
+                    "$ref": "#/definitions/models.BaseAmphureModel"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name_en": {
+                    "type": "string"
+                },
+                "name_th": {
+                    "type": "string"
+                },
+                "post_code": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.AddressUpdateO": {
+            "type": "object",
+            "properties": {
+                "amphure": {
+                    "$ref": "#/definitions/models.BaseAmphureModel"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name_en": {
+                    "type": "string"
+                },
+                "name_th": {
+                    "type": "string"
+                },
+                "post_code": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.BaseAmphureModel": {
+            "type": "object",
+            "properties": {
+                "name_en": {
+                    "type": "string"
+                },
+                "name_th": {
+                    "type": "string"
+                },
+                "province": {
+                    "$ref": "#/definitions/models.BaseProvinceModel"
+                }
+            }
+        },
+        "models.BaseProvinceModel": {
+            "type": "object",
+            "properties": {
+                "name_en": {
+                    "type": "string"
+                },
+                "name_th": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CreateProductGroupI": {
+            "type": "object",
+            "required": [
+                "groupName"
+            ],
+            "properties": {
+                "groupName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CreateProductI": {
+            "type": "object",
+            "required": [
+                "barcodeId",
+                "basePrice",
+                "groupId",
+                "productName",
+                "productNameTh",
+                "salePrice",
+                "unit"
+            ],
+            "properties": {
+                "barcodeId": {
+                    "type": "string"
+                },
+                "basePrice": {
+                    "type": "number"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "isBaseProduct": {
+                    "type": "boolean"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "productNameTh": {
+                    "type": "string"
+                },
+                "salePrice": {
+                    "type": "number"
+                },
+                "subProduct": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.CreateProductISubProduct"
+                    }
+                },
+                "unit": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CreateProductISubProduct": {
+            "type": "object",
+            "properties": {
+                "baseProductId": {
+                    "type": "string"
+                },
+                "baseProductUse": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.CreateSaleChannelI": {
+            "type": "object",
+            "required": [
+                "saleChannel"
+            ],
+            "properties": {
+                "saleChannel": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CustomerCreateI": {
+            "type": "object",
+            "required": [
+                "address",
+                "amphure",
+                "contactNo",
+                "email",
+                "fullName",
+                "postCode",
+                "province",
+                "tambon"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "amphure": {
+                    "type": "string"
+                },
+                "contactNo": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "postCode": {
+                    "type": "integer"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "tambon": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CustomerDeleteI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CustomerReadI": {
+            "type": "object",
+            "properties": {
+                "contactNo": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.CustomerUpdateI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "amphure": {
+                    "type": "string"
+                },
+                "contactNo": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "fullName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "postCode": {
+                    "type": "integer"
+                },
+                "province": {
+                    "type": "string"
+                },
+                "tambon": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.DeleteProductGroupI": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.DeleteProductI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.DeleteSaleChannelI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.GetStockI": {
+            "type": "object",
+            "properties": {
+                "barcodeId": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "productName": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.GetStockO": {
+            "type": "object",
+            "properties": {
+                "barcodeId": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.ProductCreateI": {
+            "type": "object",
+            "properties": {
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameTh": {
+                    "type": "string"
+                },
+                "price": {
+                    "$ref": "#/definitions/collectionmodels.Price"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "productList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/collectionmodels.ProductList"
+                    }
+                },
+                "shopItem": {
+                    "$ref": "#/definitions/collectionmodels.ShopItem"
+                },
+                "shopSku": {
+                    "type": "string"
+                },
+                "skuId": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "stock": {
+                    "$ref": "#/definitions/collectionmodels.Stock"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ProductDeleteI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ProductUpdateI": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "nameEn": {
+                    "type": "string"
+                },
+                "nameTh": {
+                    "type": "string"
+                },
+                "price": {
+                    "$ref": "#/definitions/collectionmodels.Price"
+                },
+                "productId": {
+                    "type": "string"
+                },
+                "productList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/collectionmodels.ProductList"
+                    }
+                },
+                "shopItem": {
+                    "$ref": "#/definitions/collectionmodels.ShopItem"
+                },
+                "shopSku": {
+                    "type": "string"
+                },
+                "skuId": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "stock": {
+                    "$ref": "#/definitions/collectionmodels.Stock"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ReadProductGroupO": {
+            "type": "object",
+            "properties": {
+                "groupName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ReadProductO": {
+            "type": "object",
+            "properties": {
+                "barcodeId": {
+                    "type": "string"
+                },
+                "basePrice": {
+                    "type": "number"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "isBaseProduct": {
+                    "type": "boolean"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "productNameTh": {
+                    "type": "string"
+                },
+                "productSub": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ReadProductOSub"
+                    }
+                },
+                "salePrice": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ReadProductOSub": {
+            "type": "object",
+            "properties": {
+                "baseProductId": {
+                    "type": "string"
+                },
+                "baseProductUse": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "productId": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ReadSaleChannelI": {
+            "type": "object",
+            "properties": {
+                "saleChannel": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ReadSaleChannelO": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "saleChannel": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-any": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-array_models_GetStockO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.GetStockO"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-array_models_ReadProductGroupO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ReadProductGroupO"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-array_models_ReadProductO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ReadProductO"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-array_models_ReadSaleChannelO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.ReadSaleChannelO"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-array_models_SaleOrderReadO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.SaleOrderReadO"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-models_AddressReadO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.AddressReadO"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-models_AddressUpdateO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.AddressUpdateO"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-models_ReadProductO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.ReadProductO"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-models_SaleOrderReadO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.SaleOrderReadO"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-models_Token": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.Token"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ResponseAPI-models_UpdateProductO": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/models.UpdateProductO"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.SaleOrderCreateI": {
+            "type": "object",
+            "properties": {
+                "item_list": {
+                    "description": "สินค้าที่ขาย",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/collectionmodels.ItemList"
+                    }
+                },
+                "order_address": {
+                    "description": "ที่อยู่ผู้ซื้อ",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/collectionmodels.OrderAddress"
+                        }
+                    ]
+                },
+                "sale_channel": {
+                    "description": "ช่องทางการขาย shopee laz lineOA",
+                    "type": "string"
+                },
+                "sale_type": {
+                    "description": "ประเภทการขาย โอน ปลายทาง",
+                    "type": "string"
+                },
+                "shipping_fee": {
+                    "description": "ค่าขนส่ง",
+                    "type": "number"
+                },
+                "shipping_platform": {
+                    "description": "ผู้จัดส่ง kerry flash",
+                    "type": "string"
+                },
+                "shop_id": {
+                    "description": "รหัสร้านค้า",
+                    "type": "string"
+                },
+                "tracking_code": {
+                    "description": "เลข tracking",
+                    "type": "string"
+                }
+            }
+        },
+        "models.SaleOrderReadI": {
+            "type": "object",
+            "properties": {
+                "orderNo": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.SaleOrderReadO": {
+            "type": "object",
+            "properties": {
+                "item_list": {
+                    "description": "สินค้าที่ขาย",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/collectionmodels.ItemList"
+                    }
+                },
+                "order_address": {
+                    "description": "ที่อยู่ผู้ซื้อ",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/collectionmodels.OrderAddress"
+                        }
+                    ]
+                },
+                "order_no": {
+                    "type": "string"
+                },
+                "sale_channel": {
+                    "description": "ช่องทางการขาย shopee laz lineOA",
+                    "type": "string"
+                },
+                "sale_type": {
+                    "description": "ประเภทการขาย โอน ปลายทาง",
+                    "type": "string"
+                },
+                "shipping_fee": {
+                    "description": "ค่าขนส่ง",
+                    "type": "number"
+                },
+                "shipping_platform": {
+                    "description": "ผู้จัดส่ง kerry flash",
+                    "type": "string"
+                },
+                "shop_id": {
+                    "description": "รหัสร้านค้า",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "สถานะ order",
+                    "type": "string"
+                },
+                "total_base_price": {
+                    "description": "ต้นทุน",
+                    "type": "number"
+                },
+                "total_profit": {
+                    "description": "กำไร",
+                    "type": "number"
+                },
+                "total_sale_price": {
+                    "description": "ราคาที่ขาย",
+                    "type": "number"
+                },
+                "total_vat": {
+                    "description": "จำนวนภาษี",
+                    "type": "number"
+                },
+                "tracking_code": {
+                    "description": "เลข tracking",
+                    "type": "string"
+                }
+            }
+        },
+        "models.SaleOrderUpdateI": {
+            "type": "object",
+            "properties": {
+                "order_no": {
+                    "type": "string"
+                },
+                "status": {
+                    "description": "สถานะ order",
+                    "type": "string"
+                },
+                "tracking_code": {
+                    "description": "เลข tracking",
+                    "type": "string"
+                }
+            }
+        },
+        "models.Token": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UpdateProductGroupI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "groupName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UpdateProductI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "barcodeId": {
+                    "type": "string"
+                },
+                "basePrice": {
+                    "type": "number"
+                },
+                "groupId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "isBaseProduct": {
+                    "type": "boolean"
+                },
+                "productName": {
+                    "type": "string"
+                },
+                "productNameTh": {
+                    "type": "string"
+                },
+                "salePrice": {
+                    "type": "number"
+                },
+                "subProduct": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.UpdateProductISubProduct"
+                    }
+                },
+                "unit": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UpdateProductISubProduct": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "baseProductId": {
+                    "type": "string"
+                },
+                "baseProductUse": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UpdateProductO": {
+            "type": "object"
+        },
+        "models.UpdateSaleChannelI": {
+            "type": "object",
+            "required": [
+                "id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "saleChannel": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "bearerAuth": {
+            "description": "Example: \"Bearer {token}\"",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

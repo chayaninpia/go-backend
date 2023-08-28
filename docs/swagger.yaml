@@ -1,0 +1,1419 @@
+definitions:
+  collectionmodels.ItemList:
+    properties:
+      base_price:
+        type: number
+      itemId:
+        type: string
+      productId:
+        type: string
+      quantity:
+        type: integer
+      sale_price:
+        type: number
+      sellerSku:
+        type: string
+      vat:
+        type: number
+    type: object
+  collectionmodels.OrderAddress:
+    properties:
+      address1:
+        type: string
+      address2:
+        type: string
+      address3:
+        type: string
+      address4:
+        type: string
+      address5:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone:
+        type: string
+      phone2:
+        type: string
+      post_code:
+        type: string
+    type: object
+  collectionmodels.Price:
+    properties:
+      basePrice:
+        type: number
+      price:
+        type: number
+      specialPrice:
+        type: number
+      vat:
+        type: number
+    type: object
+  collectionmodels.ProductList:
+    properties:
+      productId:
+        type: string
+      quantityUse:
+        type: integer
+    type: object
+  collectionmodels.ShopItem:
+    properties:
+      lazada:
+        $ref: '#/definitions/collectionmodels.StandardShopItem'
+      shopee:
+        $ref: '#/definitions/collectionmodels.StandardShopItem'
+    type: object
+  collectionmodels.StandardShopItem:
+    properties:
+      itemId:
+        type: string
+      sellerSku:
+        type: string
+    type: object
+  collectionmodels.Stock:
+    properties:
+      available:
+        type: integer
+      quantity:
+        type: integer
+      remaining:
+        type: integer
+    type: object
+  models.AddStockI:
+    properties:
+      barcodeId:
+        type: string
+      productId:
+        type: string
+      quantity:
+        type: integer
+      updateType:
+        type: string
+    required:
+    - barcodeId
+    - quantity
+    - updateType
+    type: object
+  models.AddressCreateI:
+    properties:
+      amphure:
+        $ref: '#/definitions/models.BaseAmphureModel'
+      name_en:
+        type: string
+      name_th:
+        type: string
+      post_code:
+        type: integer
+    type: object
+  models.AddressDeleteI:
+    properties:
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.AddressReadI:
+    properties:
+      filter:
+        type: string
+    type: object
+  models.AddressReadO:
+    properties:
+      amphure:
+        $ref: '#/definitions/models.BaseAmphureModel'
+      id:
+        type: string
+      name_en:
+        type: string
+      name_th:
+        type: string
+      post_code:
+        type: integer
+    type: object
+  models.AddressUpdateI:
+    properties:
+      amphure:
+        $ref: '#/definitions/models.BaseAmphureModel'
+      id:
+        type: string
+      name_en:
+        type: string
+      name_th:
+        type: string
+      post_code:
+        type: integer
+    type: object
+  models.AddressUpdateO:
+    properties:
+      amphure:
+        $ref: '#/definitions/models.BaseAmphureModel'
+      id:
+        type: string
+      name_en:
+        type: string
+      name_th:
+        type: string
+      post_code:
+        type: integer
+    type: object
+  models.BaseAmphureModel:
+    properties:
+      name_en:
+        type: string
+      name_th:
+        type: string
+      province:
+        $ref: '#/definitions/models.BaseProvinceModel'
+    type: object
+  models.BaseProvinceModel:
+    properties:
+      name_en:
+        type: string
+      name_th:
+        type: string
+    type: object
+  models.CreateProductGroupI:
+    properties:
+      groupName:
+        type: string
+    required:
+    - groupName
+    type: object
+  models.CreateProductI:
+    properties:
+      barcodeId:
+        type: string
+      basePrice:
+        type: number
+      groupId:
+        type: string
+      isBaseProduct:
+        type: boolean
+      productName:
+        type: string
+      productNameTh:
+        type: string
+      salePrice:
+        type: number
+      subProduct:
+        items:
+          $ref: '#/definitions/models.CreateProductISubProduct'
+        type: array
+      unit:
+        type: string
+    required:
+    - barcodeId
+    - basePrice
+    - groupId
+    - productName
+    - productNameTh
+    - salePrice
+    - unit
+    type: object
+  models.CreateProductISubProduct:
+    properties:
+      baseProductId:
+        type: string
+      baseProductUse:
+        type: integer
+    type: object
+  models.CreateSaleChannelI:
+    properties:
+      saleChannel:
+        type: string
+    required:
+    - saleChannel
+    type: object
+  models.CustomerCreateI:
+    properties:
+      address:
+        type: string
+      amphure:
+        type: string
+      contactNo:
+        type: string
+      email:
+        type: string
+      fullName:
+        type: string
+      postCode:
+        type: integer
+      province:
+        type: string
+      tambon:
+        type: string
+    required:
+    - address
+    - amphure
+    - contactNo
+    - email
+    - fullName
+    - postCode
+    - province
+    - tambon
+    type: object
+  models.CustomerDeleteI:
+    properties:
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.CustomerReadI:
+    properties:
+      contactNo:
+        type: string
+      fullName:
+        type: string
+    type: object
+  models.CustomerUpdateI:
+    properties:
+      address:
+        type: string
+      amphure:
+        type: string
+      contactNo:
+        type: string
+      email:
+        type: string
+      fullName:
+        type: string
+      id:
+        type: string
+      postCode:
+        type: integer
+      province:
+        type: string
+      tambon:
+        type: string
+    required:
+    - id
+    type: object
+  models.DeleteProductGroupI:
+    properties:
+      id:
+        type: string
+    type: object
+  models.DeleteProductI:
+    properties:
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.DeleteSaleChannelI:
+    properties:
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.GetStockI:
+    properties:
+      barcodeId:
+        type: string
+      productId:
+        type: string
+      productName:
+        type: string
+    type: object
+  models.GetStockO:
+    properties:
+      barcodeId:
+        type: string
+      productId:
+        type: string
+      productName:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  models.ProductCreateI:
+    properties:
+      images:
+        items:
+          type: string
+        type: array
+      nameEn:
+        type: string
+      nameTh:
+        type: string
+      price:
+        $ref: '#/definitions/collectionmodels.Price'
+      productId:
+        type: string
+      productList:
+        items:
+          $ref: '#/definitions/collectionmodels.ProductList'
+        type: array
+      shopItem:
+        $ref: '#/definitions/collectionmodels.ShopItem'
+      shopSku:
+        type: string
+      skuId:
+        type: string
+      status:
+        type: string
+      stock:
+        $ref: '#/definitions/collectionmodels.Stock'
+      url:
+        type: string
+    type: object
+  models.ProductDeleteI:
+    properties:
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.ProductUpdateI:
+    properties:
+      id:
+        type: string
+      images:
+        items:
+          type: string
+        type: array
+      nameEn:
+        type: string
+      nameTh:
+        type: string
+      price:
+        $ref: '#/definitions/collectionmodels.Price'
+      productId:
+        type: string
+      productList:
+        items:
+          $ref: '#/definitions/collectionmodels.ProductList'
+        type: array
+      shopItem:
+        $ref: '#/definitions/collectionmodels.ShopItem'
+      shopSku:
+        type: string
+      skuId:
+        type: string
+      status:
+        type: string
+      stock:
+        $ref: '#/definitions/collectionmodels.Stock'
+      url:
+        type: string
+    type: object
+  models.ReadProductGroupO:
+    properties:
+      groupName:
+        type: string
+      id:
+        type: string
+    type: object
+  models.ReadProductO:
+    properties:
+      barcodeId:
+        type: string
+      basePrice:
+        type: number
+      groupId:
+        type: string
+      id:
+        type: string
+      isBaseProduct:
+        type: boolean
+      productName:
+        type: string
+      productNameTh:
+        type: string
+      productSub:
+        items:
+          $ref: '#/definitions/models.ReadProductOSub'
+        type: array
+      salePrice:
+        type: number
+      unit:
+        type: string
+    type: object
+  models.ReadProductOSub:
+    properties:
+      baseProductId:
+        type: string
+      baseProductUse:
+        type: integer
+      id:
+        type: string
+      productId:
+        type: string
+    type: object
+  models.ReadSaleChannelI:
+    properties:
+      saleChannel:
+        type: string
+    type: object
+  models.ReadSaleChannelO:
+    properties:
+      id:
+        type: string
+      saleChannel:
+        type: string
+    type: object
+  models.ResponseAPI-any:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-array_models_GetStockO:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.GetStockO'
+        type: array
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-array_models_ReadProductGroupO:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.ReadProductGroupO'
+        type: array
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-array_models_ReadProductO:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.ReadProductO'
+        type: array
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-array_models_ReadSaleChannelO:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.ReadSaleChannelO'
+        type: array
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-array_models_SaleOrderReadO:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/models.SaleOrderReadO'
+        type: array
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-models_AddressReadO:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.AddressReadO'
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-models_AddressUpdateO:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.AddressUpdateO'
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-models_ReadProductO:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.ReadProductO'
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-models_SaleOrderReadO:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.SaleOrderReadO'
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-models_Token:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.Token'
+      message:
+        type: string
+    type: object
+  models.ResponseAPI-models_UpdateProductO:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/models.UpdateProductO'
+      message:
+        type: string
+    type: object
+  models.SaleOrderCreateI:
+    properties:
+      item_list:
+        description: สินค้าที่ขาย
+        items:
+          $ref: '#/definitions/collectionmodels.ItemList'
+        type: array
+      order_address:
+        allOf:
+        - $ref: '#/definitions/collectionmodels.OrderAddress'
+        description: ที่อยู่ผู้ซื้อ
+      sale_channel:
+        description: ช่องทางการขาย shopee laz lineOA
+        type: string
+      sale_type:
+        description: ประเภทการขาย โอน ปลายทาง
+        type: string
+      shipping_fee:
+        description: ค่าขนส่ง
+        type: number
+      shipping_platform:
+        description: ผู้จัดส่ง kerry flash
+        type: string
+      shop_id:
+        description: รหัสร้านค้า
+        type: string
+      tracking_code:
+        description: เลข tracking
+        type: string
+    type: object
+  models.SaleOrderReadI:
+    properties:
+      orderNo:
+        type: string
+    type: object
+  models.SaleOrderReadO:
+    properties:
+      item_list:
+        description: สินค้าที่ขาย
+        items:
+          $ref: '#/definitions/collectionmodels.ItemList'
+        type: array
+      order_address:
+        allOf:
+        - $ref: '#/definitions/collectionmodels.OrderAddress'
+        description: ที่อยู่ผู้ซื้อ
+      order_no:
+        type: string
+      sale_channel:
+        description: ช่องทางการขาย shopee laz lineOA
+        type: string
+      sale_type:
+        description: ประเภทการขาย โอน ปลายทาง
+        type: string
+      shipping_fee:
+        description: ค่าขนส่ง
+        type: number
+      shipping_platform:
+        description: ผู้จัดส่ง kerry flash
+        type: string
+      shop_id:
+        description: รหัสร้านค้า
+        type: string
+      status:
+        description: สถานะ order
+        type: string
+      total_base_price:
+        description: ต้นทุน
+        type: number
+      total_profit:
+        description: กำไร
+        type: number
+      total_sale_price:
+        description: ราคาที่ขาย
+        type: number
+      total_vat:
+        description: จำนวนภาษี
+        type: number
+      tracking_code:
+        description: เลข tracking
+        type: string
+    type: object
+  models.SaleOrderUpdateI:
+    properties:
+      order_no:
+        type: string
+      status:
+        description: สถานะ order
+        type: string
+      tracking_code:
+        description: เลข tracking
+        type: string
+    type: object
+  models.Token:
+    properties:
+      token:
+        type: string
+    type: object
+  models.UpdateProductGroupI:
+    properties:
+      groupName:
+        type: string
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.UpdateProductI:
+    properties:
+      barcodeId:
+        type: string
+      basePrice:
+        type: number
+      groupId:
+        type: string
+      id:
+        type: string
+      isBaseProduct:
+        type: boolean
+      productName:
+        type: string
+      productNameTh:
+        type: string
+      salePrice:
+        type: number
+      subProduct:
+        items:
+          $ref: '#/definitions/models.UpdateProductISubProduct'
+        type: array
+      unit:
+        type: string
+    required:
+    - id
+    type: object
+  models.UpdateProductISubProduct:
+    properties:
+      baseProductId:
+        type: string
+      baseProductUse:
+        type: integer
+      id:
+        type: string
+    required:
+    - id
+    type: object
+  models.UpdateProductO:
+    type: object
+  models.UpdateSaleChannelI:
+    properties:
+      id:
+        type: string
+      saleChannel:
+        type: string
+    required:
+    - id
+    type: object
+info:
+  contact: {}
+  description: This is a docs of Go Backend POS API
+  title: Go Backend POS API
+  version: "1.0"
+paths:
+  /api/v1/address:
+    delete:
+      description: to delete address
+      operationId: Address
+      parameters:
+      - description: AddressDeleteI
+        in: body
+        name: AddressDeleteI
+        schema:
+          $ref: '#/definitions/models.AddressDeleteI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: Address
+      tags:
+      - Address
+    get:
+      description: to read address
+      operationId: Address
+      parameters:
+      - description: AddressReadI
+        in: body
+        name: AddressReadI
+        schema:
+          $ref: '#/definitions/models.AddressReadI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-models_AddressReadO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: Address
+      tags:
+      - Address
+    post:
+      description: to create a new address
+      operationId: Address
+      parameters:
+      - description: AddressCreateI
+        in: body
+        name: AddressCreateI
+        schema:
+          $ref: '#/definitions/models.AddressCreateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: Address
+      tags:
+      - Address
+    put:
+      description: to update address
+      operationId: Address
+      parameters:
+      - description: AddressUpdateI
+        in: body
+        name: AddressUpdateI
+        schema:
+          $ref: '#/definitions/models.AddressUpdateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-models_AddressUpdateO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: Address
+      tags:
+      - Address
+  /api/v1/automigrate:
+    post:
+      description: to automigate database
+      operationId: AutoMigrate
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: AutoMigrate
+      tags:
+      - AutoMigrate
+  /api/v1/customer:
+    delete:
+      description: to delete customer
+      operationId: CustomerDelete
+      parameters:
+      - description: CustomerDeleteI
+        in: body
+        name: CustomerDeleteI
+        schema:
+          $ref: '#/definitions/models.CustomerDeleteI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: CustomerDelete
+      tags:
+      - Customer
+    get:
+      description: to read customer
+      operationId: CustomerRead
+      parameters:
+      - description: CustomerReadI
+        in: body
+        name: CustomerReadI
+        schema:
+          $ref: '#/definitions/models.CustomerReadI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-array_models_ReadProductO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: CustomerRead
+      tags:
+      - Customer
+    post:
+      description: to create customer
+      operationId: CustomerCreate
+      parameters:
+      - description: CustomerCreateI
+        in: body
+        name: CustomerCreateI
+        schema:
+          $ref: '#/definitions/models.CustomerCreateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: CustomerCreate
+      tags:
+      - Customer
+    put:
+      description: to update customer
+      operationId: CustomerUpdate
+      parameters:
+      - description: CustomerUpdateI
+        in: body
+        name: CustomerUpdateI
+        schema:
+          $ref: '#/definitions/models.CustomerUpdateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: CustomerUpdate
+      tags:
+      - Customer
+  /api/v1/login:
+    post:
+      description: to get authorization token
+      operationId: Login
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-models_Token'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: Login
+      tags:
+      - Login
+  /api/v1/product:
+    delete:
+      description: to delete product item
+      operationId: ProductDelete
+      parameters:
+      - description: ProductDeleteI
+        in: body
+        name: ProductDeleteI
+        schema:
+          $ref: '#/definitions/models.ProductDeleteI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductDelete
+      tags:
+      - Product
+    get:
+      description: to read product item by id or product name
+      operationId: ProductRead
+      parameters:
+      - description: productname
+        in: query
+        name: productname
+        type: string
+      - description: id
+        in: query
+        name: id
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-models_ReadProductO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductRead
+      tags:
+      - Product
+    post:
+      description: to create product item
+      operationId: ProductCreate
+      parameters:
+      - description: ProductCreateI
+        in: body
+        name: ProductCreateI
+        schema:
+          $ref: '#/definitions/models.ProductCreateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductCreate
+      tags:
+      - Product
+    put:
+      description: to update product item
+      operationId: ProductUpdate
+      parameters:
+      - description: ProductUpdateI
+        in: body
+        name: ProductUpdateI
+        schema:
+          $ref: '#/definitions/models.ProductUpdateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-models_UpdateProductO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductUpdate
+      tags:
+      - Product
+  /api/v1/productgroup:
+    delete:
+      description: to delete product group
+      operationId: ProductGroupDelete
+      parameters:
+      - description: DeleteProductGroupI
+        in: body
+        name: DeleteProductGroupI
+        schema:
+          $ref: '#/definitions/models.DeleteProductGroupI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductGroupDelete
+      tags:
+      - ProductGroup
+    get:
+      description: to read product group
+      operationId: ProductGroupRead
+      parameters:
+      - description: groupName
+        in: query
+        name: groupName
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-array_models_ReadProductGroupO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductGroupRead
+      tags:
+      - ProductGroup
+    post:
+      description: to create product group
+      operationId: ProductGroupCreate
+      parameters:
+      - description: CreateProductGroupI
+        in: body
+        name: CreateProductGroupI
+        schema:
+          $ref: '#/definitions/models.CreateProductGroupI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductGroupCreate
+      tags:
+      - ProductGroup
+    put:
+      description: to update product group
+      operationId: ProductGroupUpdate
+      parameters:
+      - description: UpdateProductGroupI
+        in: body
+        name: UpdateProductGroupI
+        schema:
+          $ref: '#/definitions/models.UpdateProductGroupI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductGroupUpdate
+      tags:
+      - ProductGroup
+  /api/v1/productitem:
+    delete:
+      description: to delete product item
+      operationId: ProductItemDelete
+      parameters:
+      - description: DeleteProductI
+        in: body
+        name: DeleteProductI
+        schema:
+          $ref: '#/definitions/models.DeleteProductI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductItemDelete
+      tags:
+      - ProductItem
+    get:
+      description: to read product item
+      operationId: ProductItemRead
+      parameters:
+      - description: productName
+        in: query
+        name: productName
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-array_models_ReadProductO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductItemRead
+      tags:
+      - ProductItem
+    post:
+      description: to create product item
+      operationId: ProductItemCreate
+      parameters:
+      - description: CreateProductI
+        in: body
+        name: CreateProductI
+        schema:
+          $ref: '#/definitions/models.CreateProductI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductItemCreate
+      tags:
+      - ProductItem
+    put:
+      description: to update product item
+      operationId: ProductItemUpdate
+      parameters:
+      - description: UpdateProductI
+        in: body
+        name: UpdateProductI
+        schema:
+          $ref: '#/definitions/models.UpdateProductI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductItemUpdate
+      tags:
+      - ProductItem
+  /api/v1/productstock:
+    get:
+      description: to read product stock
+      operationId: ProductStockRead
+      parameters:
+      - description: GetStockI
+        in: body
+        name: GetStockI
+        schema:
+          $ref: '#/definitions/models.GetStockI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-array_models_GetStockO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductStockRead
+      tags:
+      - ProductStock
+    put:
+      description: to update product stock
+      operationId: ProductStockUpdate
+      parameters:
+      - description: AddStockI
+        in: body
+        name: AddStockI
+        schema:
+          $ref: '#/definitions/models.AddStockI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: ProductStockUpdate
+      tags:
+      - ProductStock
+  /api/v1/salechannel:
+    delete:
+      description: to delete sale channel
+      operationId: SaleChannelDelete
+      parameters:
+      - description: DeleteSaleChannelI
+        in: body
+        name: DeleteSaleChannelI
+        schema:
+          $ref: '#/definitions/models.DeleteSaleChannelI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleChannelDelete
+      tags:
+      - SaleChannel
+    get:
+      description: to read sale channel
+      operationId: SaleChannelRead
+      parameters:
+      - description: ReadSaleChannelI
+        in: body
+        name: ReadSaleChannelI
+        schema:
+          $ref: '#/definitions/models.ReadSaleChannelI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-array_models_ReadSaleChannelO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleChannelRead
+      tags:
+      - SaleChannel
+    post:
+      description: to create sale channel
+      operationId: SaleChannelCreate
+      parameters:
+      - description: CreateSaleChannelI
+        in: body
+        name: CreateSaleChannelI
+        schema:
+          $ref: '#/definitions/models.CreateSaleChannelI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleChannelCreate
+      tags:
+      - SaleChannel
+    put:
+      description: to update sale channel
+      operationId: SaleChannelUpdate
+      parameters:
+      - description: UpdateSaleChannelI
+        in: body
+        name: UpdateSaleChannelI
+        schema:
+          $ref: '#/definitions/models.UpdateSaleChannelI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleChannelUpdate
+      tags:
+      - SaleChannel
+  /api/v1/saleorder:
+    get:
+      description: to read sale order
+      operationId: SaleOrderRead
+      parameters:
+      - description: SaleOrderReadI
+        in: body
+        name: SaleOrderReadI
+        schema:
+          $ref: '#/definitions/models.SaleOrderReadI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-array_models_SaleOrderReadO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleOrderRead
+      tags:
+      - SaleOrder
+    post:
+      description: to create sale order
+      operationId: SaleOrderCreate
+      parameters:
+      - description: SaleOrderCreateI
+        in: body
+        name: SaleOrderCreateI
+        schema:
+          $ref: '#/definitions/models.SaleOrderCreateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleOrderCreate
+      tags:
+      - SaleOrder
+  /api/v1/saleorder/:orderno:
+    get:
+      description: to Update sale order
+      operationId: SaleOrderUpdate
+      parameters:
+      - description: SaleOrderUpdateI
+        in: body
+        name: SaleOrderUpdateI
+        schema:
+          $ref: '#/definitions/models.SaleOrderUpdateI'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleOrderUpdate
+      tags:
+      - SaleOrder
+  /api/v1/saleorder/{orderno}:
+    get:
+      description: to read sale order by order number
+      operationId: SaleOrderReadByOrderNo
+      parameters:
+      - description: orderno
+        in: path
+        name: orderno
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-models_SaleOrderReadO'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.ResponseAPI-any'
+      summary: SaleOrderReadByOrderNo
+      tags:
+      - SaleOrder
+securityDefinitions:
+  bearerAuth:
+    description: 'Example: "Bearer {token}"'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

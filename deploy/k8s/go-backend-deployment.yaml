@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-backend
+spec:
+  selector:
+    matchLabels:
+      app: go-backend
+  replicas: 1
+  template:
+    metadata:
+      name: go-backend-pods
+      labels:
+        app: go-backend
+    spec:
+      containers:
+       — name: go-backend
+         image: ncnewvirus2/go-backend:1-dev
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-backend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: go-backend
+  ports:
+    - port: 80 
+      targetPort: 80
